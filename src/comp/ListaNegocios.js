@@ -4,6 +4,7 @@ import Tabla from './Tabla';
 import Detalles from './Detalles';
 import { Modal } from 'react-bootstrap';
 import filtrar from '../modulos/filtrar';
+import enviar from '../modulos/enviar';
 
 
 
@@ -26,9 +27,18 @@ function ListaNegocios(props) {
     }, []);
 
 
-    async function obtener(cb) {
+    async function obtener() {
         let resp = await fetch(config.serv + "obtener_comercios_admin.php");
         setArrayNegocios(await resp.json());
+    }
+
+    const handleActivarNegocio =(e)=>{
+        const activo= e.target.title;
+        const idComercio= e.target.dataset.idcomercio;
+
+        const dataform = {idComercio, activo}
+        console.log("dataform",dataform);
+        
     }
 
     return (
@@ -51,7 +61,7 @@ function ListaNegocios(props) {
                     <Modal.Title>Detalles del negocio</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Detalles item={registro} />
+                    <Detalles handleActivarNegocio={handleActivarNegocio} item={registro} />
                 </Modal.Body>
                 <Modal.Footer>
 

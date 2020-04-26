@@ -59,9 +59,17 @@ function Detalles(props) {
                 <div className="col-sm-12 text-center">
                     {
                         item.activo === "1" ?
-                            <i className="fas fa-toggle-on text-success icono-2"></i>                                
+                            <i 
+                                title="0" 
+                                onClick={props.handleActivarNegocio}
+                                data-idcomercio={item.idComercio} 
+                                className="fas fa-toggle-on text-success icono-2"></i>                                
                         :
-                            <i className="fas fa-toggle-off icono-2" ></i>
+                            <i 
+                                title="1" 
+                                onClick={props.handleActivarNegocio}
+                                data-idcomercio={item.idComercio} 
+                                className="fas fa-toggle-off icono-2" ></i>
                     }
 
                 </div>

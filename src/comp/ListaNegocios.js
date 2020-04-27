@@ -5,6 +5,9 @@ import Detalles from './Detalles';
 import { Modal } from 'react-bootstrap';
 import filtrar from '../modulos/filtrar';
 import enviar from '../modulos/enviar';
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.min.css';
+import 'alertifyjs/build/css/themes/default.min.css';
 
 
 
@@ -39,6 +42,13 @@ function ListaNegocios(props) {
         const dataform = {idComercio, activo}
         console.log("dataform",dataform);
         
+        enviar(config.serv+"activar_negocio.php",dataform, function (resp) { 
+            alertify
+                .alert(config.nombre, resp.data.msj, function(){                    
+                    obtener();
+                    handleClose();
+                });
+         } )
     }
 
     return (
@@ -46,8 +56,14 @@ function ListaNegocios(props) {
             <div className="row">
                 <div className="col-sm-12">
                     {
-                        arrayNegocios &&
+                        arrayNegocios ?
                         <Tabla handleShow={handleShow} array={arrayNegocios} />
+                        :
+                        <div className="alert alert-primary mt-5" role="alert">
+                            <strong>Cargando datos. Por favor espere...</strong>
+                        </div>
+
+                        
                     }
                 </div>
             </div>

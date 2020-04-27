@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ListaNegocios from './comp/ListaNegocios';
 import Login from './comp/Login';
 
-const pwd = "hola123"
+const pwd = "hola456"
 
 
 function App() {

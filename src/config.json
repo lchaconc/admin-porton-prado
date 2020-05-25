@@ -1,5 +1,6 @@
 {
     "servDev": "http://192.168.0.18/conectados-app/server/",
-    "serv": "https://mundologan.xyz/porton-prado/server/",
+    "servProd": "https://mundologan.xyz/ws/pp/",
+    "serv": "https://mundologan.xyz/ws/pp/",
     "nombre": "Admininistración Portón del Prado En Línea V 1.0"
 }

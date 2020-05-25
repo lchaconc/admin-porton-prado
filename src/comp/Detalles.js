@@ -35,8 +35,13 @@ function Detalles(props) {
                 </p>
                 <p className="item-detalles">
                     <span className="badge badge-info">
-                        Teléfono: 
+                        Teléfono 1: 
                     </span> {item.telefono1}         
+                </p>
+                <p className="item-detalles">
+                    <span className="badge badge-info">
+                        Teléfono 2: 
+                    </span> {item.telefono2}    
                 </p>
                 <p className="item-detalles">
                     <span className="badge badge-info">
@@ -49,7 +54,7 @@ function Detalles(props) {
 
 
                 <br/>
-                <div className="alert alert-secondary" role="alert">
+                <div className="alert alert-secondary">
                     {item.descripcion}
                 </div>
                     
